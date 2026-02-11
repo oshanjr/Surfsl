@@ -3,8 +3,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/input"; // Just using standard label if component not there, but let's try standard html label
-import { Switch } from "@/components/ui/switch"; // Need switch component. I'll create it or mock it. I'll mock it for now.
 
 export default function SettingsPage() {
     return (
