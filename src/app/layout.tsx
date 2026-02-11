@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 
 const montserrat = Montserrat({
@@ -28,11 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${openSans.variable} antialiased font-sans flex flex-col min-h-screen`}
+        className={`${montserrat.variable} ${openSans.variable} font-sans antialiased flex flex-col min-h-screen`}
       >
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        {children}
         <LocalBusinessSchema />
       </body>
     </html>
