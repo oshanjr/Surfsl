@@ -11,7 +11,7 @@ export const bookingSchema = z.object({
 
     // Step 2: Customization
     accommodation: z.enum(["dorm", "private", "none"]),
-    airportPickup: z.boolean().default(false),
+    airportPickup: z.boolean().optional(),
     dietaryPrefs: z.enum(["none", "vegetarian", "vegan", "gluten-free"]),
 
     // Step 3: Identity
