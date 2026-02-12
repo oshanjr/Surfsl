@@ -6,70 +6,74 @@ import { Button } from "@/components/ui/button";
 
 export default function SettingsPage() {
     return (
-        <div className="space-y-6 max-w-4xl">
+        <div className="space-y-6 max-w-4xl mx-auto">
             <div>
-                <h2 className="text-3xl font-bold tracking-tight">Settings</h2>
-                <p className="text-muted-foreground">Manage your global application settings.</p>
+                <h2 className="text-2xl font-bold tracking-tight">System Settings</h2>
+                <p className="text-sm text-muted-foreground">Configure your resort parameters.</p>
             </div>
 
-            <Card>
-                <CardHeader>
-                    <CardTitle>General Information</CardTitle>
-                    <CardDescription>Update your resort details.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium">Resort Name</label>
-                            <Input defaultValue="Surf Online Lesson" />
+            <div className="grid gap-6">
+                {/* General Config */}
+                <Card className="bg-white/80 backdrop-blur-md border border-white/50 shadow-sm">
+                    <CardHeader>
+                        <CardTitle className="text-lg">General Information</CardTitle>
+                        <CardDescription>Resort contact and location details used in invoices.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium uppercase text-muted-foreground tracking-wider">Resort Name</label>
+                                <Input defaultValue="Surf Online Lesson" className="bg-white/50 border-black/5 focus:bg-white transition-all" />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium uppercase text-muted-foreground tracking-wider">Contact Email</label>
+                                <Input defaultValue="contact@surfsl.com" className="bg-white/50 border-black/5 focus:bg-white transition-all" />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium uppercase text-muted-foreground tracking-wider">Phone Number</label>
+                                <Input defaultValue="+94 77 123 4567" className="bg-white/50 border-black/5 focus:bg-white transition-all" />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-medium uppercase text-muted-foreground tracking-wider">Address</label>
+                                <Input defaultValue="123 Beach Rd, Weligama" className="bg-white/50 border-black/5 focus:bg-white transition-all" />
+                            </div>
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium">Contact Email</label>
-                            <Input defaultValue="contact@surfsl.com" />
-                        </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium">Phone Number</label>
-                            <Input defaultValue="+94 77 123 4567" />
-                        </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium">Address</label>
-                            <Input defaultValue="123 Beach Rd, Weligama" />
-                        </div>
-                    </div>
-                </CardContent>
-                <CardFooter className="border-t px-6 py-4">
-                    <Button>Save Changes</Button>
-                </CardFooter>
-            </Card>
+                    </CardContent>
+                    <CardFooter className="border-t border-black/5 bg-black/[0.02] px-6 py-4 flex justify-end">
+                        <Button className="shadow-md">Save Changes</Button>
+                    </CardFooter>
+                </Card>
 
-            <Card>
-                <CardHeader>
-                    <CardTitle>Booking Preferences</CardTitle>
-                    <CardDescription>Configure how bookings are handled.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    <div className="flex items-center justify-between rounded-lg border p-4">
-                        <div className="space-y-0.5">
-                            <label className="text-base font-medium">Auto-confirm Bookings</label>
-                            <p className="text-sm text-muted-foreground">Automatically confirm bookings if dates are available.</p>
+                {/* Preferences */}
+                <Card className="bg-white/80 backdrop-blur-md border border-white/50 shadow-sm">
+                    <CardHeader>
+                        <CardTitle className="text-lg">Booking Preferences</CardTitle>
+                        <CardDescription>Automation rules for new reservations.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div className="flex items-center justify-between rounded-lg border border-black/5 bg-white/40 p-4 transition-colors hover:bg-white/60">
+                            <div className="space-y-0.5">
+                                <label className="text-base font-medium text-foreground">Auto-confirm Bookings</label>
+                                <p className="text-sm text-muted-foreground">Automatically confirm bookings if dates are available.</p>
+                            </div>
+                            {/* iOS Style Switch Mockup */}
+                            <div className="cursor-pointer relative inline-flex h-7 w-12 items-center rounded-full bg-green-500 transition-colors duration-200">
+                                <span className="translate-x-6 inline-block h-6 w-6 transform rounded-full bg-white shadow-sm transition duration-200" />
+                            </div>
                         </div>
-                        {/* Mock Switch */}
-                        <div className="relative inline-flex h-6 w-11 items-center rounded-full bg-primary/20">
-                            <span className="translate-x-6 inline-block h-4 w-4 transform rounded-full bg-primary transition" />
+                        <div className="flex items-center justify-between rounded-lg border border-black/5 bg-white/40 p-4 transition-colors hover:bg-white/60">
+                            <div className="space-y-0.5">
+                                <label className="text-base font-medium text-foreground">Maintenance Mode</label>
+                                <p className="text-sm text-muted-foreground">Disable bookings temporarily for site maintenance.</p>
+                            </div>
+                            {/* iOS Style Switch Mockup (Off) */}
+                            <div className="cursor-pointer relative inline-flex h-7 w-12 items-center rounded-full bg-gray-200 transition-colors duration-200">
+                                <span className="translate-x-0.5 inline-block h-6 w-6 transform rounded-full bg-white shadow-sm transition duration-200" />
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex items-center justify-between rounded-lg border p-4">
-                        <div className="space-y-0.5">
-                            <label className="text-base font-medium">Maintenance Mode</label>
-                            <p className="text-sm text-muted-foreground">Disable bookings temporarily.</p>
-                        </div>
-                        {/* Mock Switch */}
-                        <div className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200">
-                            <span className="translate-x-1 inline-block h-4 w-4 transform rounded-full bg-white transition" />
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
     );
 }
